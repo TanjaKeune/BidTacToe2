@@ -103,23 +103,17 @@ class ViewController: UIViewController {
         //sets background color on view controller
         self.view.backgroundColor = UIColor(red: 245.0/255.0, green: 233.0/255.0, blue: 200.0/255.0, alpha: 1.0)
         
-        // After reopening the view present the played moves
-//        if player == 2 {
-//            labelPlayersTurn.text = "Crosses turn."
-//        } else {
-//            labelPlayersTurn.text = "Noughts turn."
-//        }
-        
         for i in 1...9 {
-            
-            //let tmpButton = self.view.viewWithTag(i+1) as? UIButton
             
             button = self.view.viewWithTag(i) as! UIButton!
             if gameState[i-1] == 1 {
                 
                 button.setImage(UIImage(named: "noughts.png"), for: [])
+                
             } else if gameState[i-1] == 2 {
+                
                 button.setImage(UIImage(named: "crosses.png"), for: [])
+                
             }
         }
         
@@ -137,6 +131,8 @@ class ViewController: UIViewController {
 
         let activePosition = sender.tag - 1
         
+//            Place the move if the spot is empty and we have an active game
+            
         if gameState[activePosition] == 0 && activeGame {
             
             if player == 1 {
@@ -157,6 +153,8 @@ class ViewController: UIViewController {
             }
         }
         
+//            after you place the move check for winning Combination
+            
         for combination in winningCombitnation {
             
             if gameState[combination[0]] != 0 && gameState[combination[0]] == gameState[combination[1]] && gameState[combination[1]] == gameState[combination[2]] {

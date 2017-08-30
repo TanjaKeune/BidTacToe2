@@ -43,6 +43,8 @@ class BidViewController: UIViewController {
     var oBid = 0
     var sum = 0
     
+    var player1 = 0
+    
     var gameStateSaved = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     
     var sendPlayer = 0
@@ -54,9 +56,14 @@ class BidViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(player1)
+        
         //playerTurnLabel.text = "Player O turn. Make your bid:"
-        playerTurnImage.image = UIImage(named: "PlayerOTurn.png")
-       
+//        if activePlayer == 1 {
+            playerTurnImage.image = UIImage(named: "oMakeBid2.png")
+//        } else {
+//            playerTurnImage.image = UIImage(named: "xMakeBid2.png")
+//        }
         print(gameStateSaved)
         if resetCredits == true {
             playerX = 100
@@ -69,8 +76,8 @@ class BidViewController: UIViewController {
         soreLeft.text = String(scoreL)
         soreRight.text = String(scoreR)
         
-        PlayerOImage.image = UIImage(named: "NoughtsPlayerLabel.png")
-        PlayerXImage.image = UIImage(named: "CrossesPlayerLabel.png")
+        PlayerOImage.image = UIImage(named: "PlayerO.png")
+        PlayerXImage.image = UIImage(named: "PlayerX.png")
         //put a logo on navigation bar
         
         let logo = UIImage(named: "smallerBidLogo.png")
@@ -114,7 +121,7 @@ class BidViewController: UIViewController {
                // playerTurnLabel.textColor = UIColor.red
                // playerTurnLabel.text = "Player X turn. Make your bid:"
                 
-                playerTurnImage.image = UIImage(named: "PlayerXTurn.png")
+                playerTurnImage.image = UIImage(named: "xMakeBid2.png")
                 bidTextField.text = ""
                 activePlayer = 2
                 
@@ -149,7 +156,7 @@ class BidViewController: UIViewController {
                     
                     if xBid > oBid {
                         
-                        playerTurnImage.image = UIImage(named: "PlayerXTurn.png")
+                        playerTurnImage.image = UIImage(named: "xMakeBid2.png")
                         bidTextField.isHidden = true
                         playerO += xBid + oBid
                         //won call segue to the board
@@ -164,12 +171,14 @@ class BidViewController: UIViewController {
                         
                         playerX += xBid
                         playerO += oBid
-                        playerTurnImage.image = UIImage(named: "PlayerOTurn.png")
+                        playerTurnImage.image = UIImage(named: "oMakeBid2.png")
                         bidTextField.text = ""
+                        
+                        alertMessageOk(title: "Bids matched!", message: "Try again")
                         
                     } else {
                         
-                        playerTurnImage.image = UIImage(named: "checkPoints.png")
+//                        playerTurnImage.image = UIImage(named: "checkPoints.png")
                         bidTextField.isHidden = true
                         playerX += xBid + oBid
                         //won call segue to the board
@@ -196,12 +205,7 @@ class BidViewController: UIViewController {
     
     
     }
-    /*    } else {
-            //call alert to tell them to enter number
-            
-            self.alertMessageOk(title: "Please input you bid", message: "Ready to continue?")
-        }
-    */
+
 }
     
 override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

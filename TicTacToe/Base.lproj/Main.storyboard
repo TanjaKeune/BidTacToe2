@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="PtB-Md-et8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="d6e-6x-inD">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -191,13 +191,13 @@
                                 <nil key="highlightedColor"/>
                                 <color key="shadowColor" red="0.0" green="0.56344696969999997" blue="0.089424962220000001" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YAT-Xr-CEV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlayerO.png" translatesAutoresizingMaskIntoConstraints="NO" id="YAT-Xr-CEV">
                                 <rect key="frame" x="10" y="84" width="137" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="v9t-cW-LKs"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CTL-uW-yfT">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PlayerX.png" translatesAutoresizingMaskIntoConstraints="NO" id="CTL-uW-yfT">
                                 <rect key="frame" x="228" y="84" width="137" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="gCk-29-foD"/>
@@ -236,7 +236,7 @@
                                     <action selector="bidButtonPressed:" destination="UFE-sL-edm" eventType="touchUpInside" id="ESX-vm-e5d"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OVF-Cp-q0H">
+                            <imageView userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="OVF-Cp-q0H">
                                 <rect key="frame" x="41" y="176" width="293" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="VUz-xk-3T1"/>
@@ -337,6 +337,79 @@
             </objects>
             <point key="canvasLocation" x="1672.8" y="94.902548725637189"/>
         </scene>
+        <!--Choose Side View Controller-->
+        <scene sceneID="kv4-nN-bfc">
+            <objects>
+                <viewController id="d6e-6x-inD" customClass="ChooseSideViewController" customModule="TicTacToe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nlr-r2-F5d"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hbj-js-pfx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dfi-kR-O1w">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dUP-YM-faZ">
+                                <rect key="frame" x="74" y="197" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="HDj-mK-9lB"/>
+                                    <constraint firstAttribute="width" constant="100" id="ca9-KH-wc6"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="crosses.png"/>
+                                <connections>
+                                    <action selector="CrossesButton:" destination="d6e-6x-inD" eventType="touchUpInside" id="sSe-NI-diS"/>
+                                    <segue destination="UFE-sL-edm" kind="show" identifier="chooseSide" id="HEk-t2-yvz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhQ-9C-VUk">
+                                <rect key="frame" x="201" y="197" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="HaE-Li-R7y"/>
+                                    <constraint firstAttribute="height" constant="100" id="gNh-CM-n5W"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="noughts.png"/>
+                                <connections>
+                                    <action selector="NoughtsButton:" destination="d6e-6x-inD" eventType="touchUpInside" id="Q5F-Rf-lXG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvH-7Q-fPt">
+                                <rect key="frame" x="182" y="247" width="10" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="EIA-KU-cW1"/>
+                                    <constraint firstAttribute="width" constant="10" id="aTL-Vp-iFp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose a symbol:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfC-fL-u9i">
+                                <rect key="frame" x="74" y="100" width="227" height="67"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="227" id="39l-uy-W9F"/>
+                                    <constraint firstAttribute="height" constant="67" id="cLR-Av-H4Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lvH-7Q-fPt" firstAttribute="leading" secondItem="dUP-YM-faZ" secondAttribute="trailing" constant="8" id="6zn-dO-A4J"/>
+                            <constraint firstItem="cfC-fL-u9i" firstAttribute="top" secondItem="nlr-r2-F5d" secondAttribute="bottom" constant="80" id="OPW-ZW-kym"/>
+                            <constraint firstItem="lvH-7Q-fPt" firstAttribute="top" secondItem="cfC-fL-u9i" secondAttribute="bottom" constant="80" id="R6U-xD-cbd"/>
+                            <constraint firstItem="cfC-fL-u9i" firstAttribute="centerX" secondItem="Dfi-kR-O1w" secondAttribute="centerX" id="Vzl-3N-oDu"/>
+                            <constraint firstItem="nhQ-9C-VUk" firstAttribute="leading" secondItem="lvH-7Q-fPt" secondAttribute="trailing" constant="9" id="Xif-hs-jkm"/>
+                            <constraint firstItem="lvH-7Q-fPt" firstAttribute="centerX" secondItem="Dfi-kR-O1w" secondAttribute="centerX" id="gBX-Ga-WKp"/>
+                            <constraint firstItem="nhQ-9C-VUk" firstAttribute="top" secondItem="cfC-fL-u9i" secondAttribute="bottom" constant="30" id="kLu-Bw-a3D"/>
+                            <constraint firstItem="dUP-YM-faZ" firstAttribute="top" secondItem="cfC-fL-u9i" secondAttribute="bottom" constant="30" id="xy7-Ez-eiy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dqx-Lv-lb6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2664.8000000000002" y="104.7976011994003"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="yrT-Qc-s6D">
             <objects>
@@ -358,6 +431,13 @@
     </scenes>
     <resources>
         <image name="BidButton.png" width="150" height="30"/>
+        <image name="PlayerO.png" width="355" height="112"/>
+        <image name="PlayerX.png" width="356" height="101"/>
+        <image name="crosses.png" width="362" height="362"/>
         <image name="grid.png" width="5147" height="5147"/>
+        <image name="noughts.png" width="362" height="362"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="HEk-t2-yvz"/>
+    </inferredMetricsTieBreakers>
 </document>
